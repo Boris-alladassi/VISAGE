@@ -135,8 +135,6 @@ run_visage <- function() {
                                                                  shiny::column(width = 6,
                                                                                bslib::card( bslib::card_header("Phenotypic distribution"),
                                                                                             height = 400,
-                                                                                            # shiny::uiOutput("choosetrait_bp"),
-                                                                                            # shiny::actionButton(inputId = "plotHistbp", "Plot histogram"),
                                                                                             shiny::plotOutput(outputId = "histplotbp"))
                                                                  )
                                                  ),
@@ -260,7 +258,6 @@ run_visage <- function() {
                                                                                                                                      title = "A .csv or txt file for phenotypic data: place the genotype or accession names in the first column and the traits values in the remaining columns.")),
                                                                                               accept = c(".csv", ".txt")),
 
-                                                                             shiny::uiOutput("gwaschoosetrait", label = "Select the trait shiny::column"),
                                                                              shiny::fileInput(inputId = "gwashapmap",
                                                                                               label = shiny::tags$span("Upload genomic data (HapMap)",
                                                                                                                        shiny::tags$i(class = "glyphicon glyphicon-info-sign",
@@ -302,6 +299,8 @@ run_visage <- function() {
                                                                                               accept = c(".csv", ".txt")
                                                                                               )
                                                                            ), #End of conditional panel for using own data
+
+                                                                           shiny::uiOutput("gwaschoosetrait", label = "Select the trait shiny::column"),
                                                                            shiny::selectInput("gwasmodel", label = "Select one GWAS model", choices = c("GLM", "MLM"), selected = "MLM"),
                                                                            shiny::numericInput("numpcs", "Enter number of PCA axes", value = 3, min = 1),
                                                                            shiny::actionButton(inputId = "rungwas", "Run GWAS", class = "btn btn-success")),
